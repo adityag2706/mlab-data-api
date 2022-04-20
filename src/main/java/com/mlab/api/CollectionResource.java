@@ -18,7 +18,6 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.UpdateOptions;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
-import com.mongodb.util.JSON;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -329,7 +328,7 @@ public class CollectionResource extends PortalRESTResource {
       return defaultValue;
     }
     try {
-      return JSON.parse(value.toString());
+      return BasicDBObject.parse(value.toString());
     } catch (final Exception e) {
       throw new ResourceException(
           HttpServletResponse.SC_BAD_REQUEST,

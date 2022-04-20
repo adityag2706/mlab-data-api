@@ -4,7 +4,6 @@ import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
-import com.mongodb.util.JSON;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StreamTokenizer;
@@ -28,7 +27,7 @@ public class JsonParser {
 
   public static Object mongoParse(final String json) throws JsonParseException {
     try {
-      return JSON.parse(json);
+      return BasicDBObject.parse(json);
     } catch (final Exception e) {
       throw new JsonParseException(e.getMessage(), e);
     }
@@ -281,7 +280,7 @@ public class JsonParser {
   }
 
   public String serialize(final Object o) {
-    return JSON.serialize(convertTimestamps(convertBinaryTypesToJson(o)));
+    return convertTimestamps(convertBinaryTypesToJson(o)).toString();
   }
 
   public void serialize(final Object o, final Writer w) throws IOException {

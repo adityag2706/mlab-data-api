@@ -2,7 +2,6 @@ package com.mlab.api;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
-import com.mongodb.util.JSON;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
@@ -107,7 +106,7 @@ public class ApiServlet extends HttpServlet {
           LOG.debug(
               String.format(
                   "Exception handling request, returning status code %d: %s: %s",
-                  re.getStatusCode(), requestInfo, JSON.serialize(error)));
+                  re.getStatusCode(), requestInfo, error.toString()));
         }
       } else {
         res.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
@@ -115,7 +114,7 @@ public class ApiServlet extends HttpServlet {
       }
       res.setContentType("application/json; charset=utf-8");
       try {
-        res.getWriter().println(JSON.serialize(error));
+        res.getWriter().println(error.toString());
       } catch (final IOException ioe) {
         throw new MlabException(ioe);
       }
