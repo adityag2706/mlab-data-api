@@ -53,7 +53,7 @@ dependencies {
     compile 'org.apache.tomcat.embed:tomcat-embed-jasper:8.5.32'
     compile 'org.apache.tomcat:tomcat-jasper:8.5.32'
     compile 'org.json:json:20190722'
-    compile 'org.mongodb:mongo-java-driver:3.12.1'
+    compile 'org.mongodb:mongodb-driver-legacy:4.2.3'
     compile 'org.slf4j:jcl-over-slf4j:1.7.30'
     compile 'org.slf4j:jul-to-slf4j:1.7.30'
     compile 'org.slf4j:log4j-over-slf4j:1.7.30'

@@ -2,7 +2,6 @@ package com.mlab.api;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
-import com.mongodb.util.JSON;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
@@ -19,6 +18,7 @@ import com.mlab.ws.Resource;
 import com.mlab.ws.ResourceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.bson.json.JsonWriter;
 
 public class ApiServlet extends HttpServlet {
 

@@ -18,7 +18,6 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.UpdateOptions;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
-import com.mongodb.util.JSON;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -29,6 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.bson.BSONObject;
 import org.bson.Document;
 import org.bson.types.ObjectId;
+import org.bson.json.JsonWriter;
 
 public class CollectionResource extends PortalRESTResource {
 

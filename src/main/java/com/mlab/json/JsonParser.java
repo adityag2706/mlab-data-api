@@ -4,7 +4,6 @@ import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
-import com.mongodb.util.JSON;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StreamTokenizer;
@@ -21,10 +20,12 @@ import org.bson.types.BSONTimestamp;
 import org.bson.types.Binary;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.bson.json;
+
 
 public class JsonParser {
 
-  public JsonParser() {}
+  public json.JsonWriter() {}
 
   public static Object mongoParse(final String json) throws JsonParseException {
     try {
