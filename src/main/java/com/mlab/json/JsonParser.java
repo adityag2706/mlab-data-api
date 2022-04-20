@@ -20,12 +20,10 @@ import org.bson.types.BSONTimestamp;
 import org.bson.types.Binary;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.bson.json;
+import org.bson.JSON;
 
 
 public class JsonParser {
-
-  public json.JsonWriter() {}
 
   public static Object mongoParse(final String json) throws JsonParseException {
     try {
