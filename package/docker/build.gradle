@@ -1,0 +1,63 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'war'
+    id 'distribution'
+}
+
+version '1.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_10
+}
+
+ext {
+    javaMainClass = 'com.mlab.api.Main'
+}
+
+application {
+    mainClassName = javaMainClass
+}
+
+distributions {
+    main {
+        baseName = 'mlab-data-api'
+        contents {
+            from('src/main/webapp') {
+                into('www')
+            }
+        }
+    }
+}
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+    compile 'com.fasterxml.jackson.core:jackson-core:2.10.2'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.10.2'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.10.2'
+    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.10.2'
+    compile 'commons-cli:commons-cli:1.4'
+    compile 'commons-io:commons-io:2.1'
+    compile 'org.apache.httpcomponents:httpclient:4.5.11'
+    compile 'org.apache.tomcat.embed:tomcat-embed-core:8.5.32'
+    compile 'org.apache.tomcat.embed:tomcat-embed-jasper:8.5.32'
+    compile 'org.apache.tomcat:tomcat-jasper:8.5.32'
+    compile 'org.json:json:20211205'
+    compile 'org.mongodb:mongodb-driver-legacy:4.5.1'
+    compile 'org.slf4j:jcl-over-slf4j:1.7.30'
+    compile 'org.slf4j:jul-to-slf4j:1.7.30'
+    compile 'org.slf4j:log4j-over-slf4j:1.7.30'
+    compile 'org.slf4j:slf4j-api:1.7.30'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:2.28.2'
+}
