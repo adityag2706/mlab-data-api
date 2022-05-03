@@ -1,5 +1,5 @@
 FROM gradle:jdk14 as builder
-COPY --chown=gradle:gradle . /home/gradle/src
+COPY --chown=gradle:gradle ../../src /home/gradle/src
 WORKDIR /home/gradle/src
 RUN gradle distTar
 
